@@ -55,12 +55,19 @@ public class FreshWorksTest {
 
 	}
 
+	// @Test(priority = 1)
+	// public void freshWorkslogoTest() {
+	// 	boolean flag = false;
+	// 		flag = driver.findElement(By.cssSelector("a.logo.logo-fworks")).isDisplayed();
+	// 		Assert.assertTrue(flag);
+	// }
 	@Test(priority = 1)
-	public void freshWorkslogoTest() {
-		boolean flag = false;
-			flag = driver.findElement(By.cssSelector("a.logo.logo-fworks")).isDisplayed();
-			Assert.assertTrue(flag);
-	}
+public void freshWorkslogoTest() {
+    WebDriverWait wait = new WebDriverWait(driver, 10); // Wait up to 10 seconds
+    WebElement logoElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.logo.logo-fworks")));
+    Assert.assertTrue(logoElement.isDisplayed());
+}
+
 
 	@Test(priority = 2)
 	public void freshWorksTitleTest() {
